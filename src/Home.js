@@ -1,7 +1,7 @@
 import { useState } from 'react'; //destructure useState function("Hook") from library
 
 const Home = () => {
-	const [] = useState([
+	const [blogs, setBlogs] = useState([
 		{
 			title: 'My new website',
 			body: 'lorem ipsum...',
@@ -18,11 +18,20 @@ const Home = () => {
 			title: 'Developer Tips...',
 			body: 'lorem ipsum...',
 			author: 'Eli',
-			id: 23,
+			id: 3,
 		},
 	]);
-
-	return <div className='home'></div>;
+	// Write javascript inside curly braces
+	return (
+		<div className='home'>
+			{blogs.map((blog) => (
+				<div className='blog-preview' key={blog.id}>
+					<h2>{blog.title}</h2>
+					<p>Written by {blog.author}</p>
+				</div>
+			))}
+		</div>
+	);
 };
 
 export default Home;
